@@ -1,0 +1,33 @@
+.banner_box {
+  max-width: 35rem;
+  width: 85%;
+  position: relative;
+  height: fit-content;
+  word-wrap: break-word;
+  margin-left: 292px;
+  z-index: 1;
+}
+
+.banner_heading {
+  font-weight: 100;
+  font-size: 1.2rem;
+  line-height: 40px;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+.banner_button {
+  border-radius: 20px;
+  background-color: transparent;
+  color: black;
+  border: 1px solid #fd7291;
+  height: 55px;
+  width: 263px;
+  margin-top: 40px;
+  font-family: 'IBM Plex Mono';
+}
+
+.background_image {
+  z-index: 1;
+  margin-bottom: 480px;
+}

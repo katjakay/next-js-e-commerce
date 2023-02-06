@@ -10,15 +10,40 @@ export default function RootLayout({ children }) {
       <body>
         <header className={styles.header}>
           <nav>
+            <a href="/" className={styles.logo}>
+              KA-LINAW Pilates
+            </a>
             <div>
               <Link href="/">Home</Link>
-              <Link href="/singleproduct">Single Products</Link>
-              <Link href="/cart">Cart</Link>
+              <Link href="/products">Products</Link>
+              <Link href="/cart">Cart (0)</Link>
             </div>
           </nav>
         </header>
         {children}
-        <footer className={styles.footer}>ADD FOOTER HERE LATER</footer>
+        <footer className={styles.footer}>
+          <div>
+            <ul>
+              <li href="/">Home</li>
+              <li href="/products">Products</li>
+              <li href="/">About Kalinaw</li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li href="/">Privacy Policy</li>
+              <li href="/">Cookies</li>
+              <li href="/">Terms & Conditions</li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li href="/">Contact</li>
+              <li href="/">+43 677 637 3648</li>
+              <li href="/">pilates@kalinaw.com</li>
+            </ul>
+          </div>
+        </footer>
       </body>
     </html>
   );
