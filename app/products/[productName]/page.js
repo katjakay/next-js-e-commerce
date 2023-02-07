@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { products } from '../../../database/products';
-import AddToCartButton from '../../components/AddToCartButton';
 import styles from './page.module.scss';
 import Product from './Product';
 
@@ -14,26 +13,30 @@ export default function OneProductPage(props) {
   });
 
   return (
-    <>
-      <div className={styles.product_wrapper}>
-        <h1>{oneProduct.firstName}</h1>
-        <div className={styles.image_layout}>
-          {' '}
+    <div className={styles.main_wrapper}>
+      <div className={styles.image_wrapper}>
+        <div>
           <Image
             src={`/images/${oneProduct.firstName}-${oneProduct.id}.png`}
             alt={oneProduct.type}
             width="566"
             height="809"
-          />{' '}
+          />
+        </div>
+        <div className={styles.product_description}>
+          <div>
+            <h1>{oneProduct.firstName}</h1>
+            <p>{oneProduct.description}</p>
+            <p> {oneProduct.price}</p>
+          </div>
+          <div>
+            <Product product={oneProduct} />
+            <a className={styles.product_button} href="/">
+              Add to Cart
+            </a>
+          </div>
         </div>
       </div>
-
-      <div className={styles.product_description}>
-        <p>{oneProduct.description}</p>
-        <main> {oneProduct.price}</main>
-        <AddToCartButton />
-        <Product product={oneProduct} />
-      </div>
-    </>
+    </div>
   );
 }

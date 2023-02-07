@@ -16,13 +16,12 @@ export default function ProductsPage() {
                 <Image
                   src={`/images/${product.firstName}-${product.id}.png`}
                   alt={product.type}
-                  width="417"
-                  height="597"
+                  width="566"
+                  height="809"
                 />
 
                 <h3> {product.firstName.toUpperCase()}</h3>
                 <p>{product.price}</p>
-
               </Link>
             </div>
           );

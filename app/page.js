@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import background from '../public/background.png';
+import background from '../public/background.jpeg';
 import styles from './page.module.scss';
 
 export default function HomePage() {
@@ -7,9 +7,10 @@ export default function HomePage() {
     <main>
       <div>
         <div className={styles.background_image}>
-          <Image src={background} alt="background" fill />
+          <Image src={background} alt="background" />
         </div>
         <div className={styles.banner_box}>
+          <h1>NEW: KA-LINAW PILATES</h1>
           <h2 className={styles.banner_heading}>
             <div>
               Set the mood and get ready for an unique experience of
@@ -17,9 +18,9 @@ export default function HomePage() {
               the island spirit within your practise.
             </div>
           </h2>
-          <button href="/products" className={styles.banner_button}>
-            Discover products
-          </button>
+          <a href="/products" className={styles.banner_button}>
+            discover all products{' '}
+          </a>
         </div>
       </div>
     </main>
