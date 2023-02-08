@@ -1,6 +1,7 @@
 'use client';
 
 import { getParsedCookie, setStringifiedCookie } from '../../utils/cookies';
+import styles from './page.modules.scss';
 
 // productsCookie = [ {id: number, quantity: number  },  ]
 
@@ -51,6 +52,10 @@ export default function Product(props) {
         }}
       >
         +
+      </button>
+      <button href="/" className={styles.addToCartButton}>
+        {' '}
+        Add to cart
       </button>
     </div>
   );

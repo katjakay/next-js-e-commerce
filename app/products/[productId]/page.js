@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getProductById } from '../../../database/products';
 import { ProductNotFoundMetadata } from './not-found';
-import styles from './page.module.scss';
+import styles from './page.modules.scss';
 import Product from './Product';
 
 export const dynamic = 'force-dynamic';
@@ -28,17 +28,17 @@ export default async function OneProductPage(props) {
   }
 
   return (
-    <div className={styles.main_wrapper}>
-      <div className={styles.image_wrapper}>
-        <div>
+    <span className={styles.main_wrapper}>
+      <div>
+        <div className={styles.image_wrapper}>
           <Image
             src={`/images/${oneProduct.firstName}-${oneProduct.id}.png`}
             alt={oneProduct.type}
-            width="566"
-            height="809"
+            width="498"
+            height="712"
           />
         </div>
-        <div className={styles.product_description}>
+        <div className={styles.description_wrapper}>
           <div>
             <h1>{oneProduct.firstName}</h1>
             <p>{oneProduct.description}</p>
@@ -46,12 +46,9 @@ export default async function OneProductPage(props) {
           </div>
           <div>
             <Product product={oneProduct} />
-            <a className={styles.product_button} href="/">
-              Add to Cart
-            </a>
           </div>
         </div>
       </div>
-    </div>
+    </span>
   );
 }

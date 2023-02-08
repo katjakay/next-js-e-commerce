@@ -1,11 +1,11 @@
 import { cookies } from 'next/headers';
 import Link from 'next/link';
-import { products } from '../../database/products';
+import { getProducts } from '../../database/products';
 
-// import CheckoutButton from '../components/CheckoutButton';
+export default async function cartPage() {
+  const products = await getProducts();
 
-export default function cartPage() {
-  const productsCookie = cookies().get('productscookie');
+  const productsCookie = cookies().get('productsCookie');
 
   let productsCookieParsed = [];
   if (productsCookie) {
@@ -15,10 +15,13 @@ export default function cartPage() {
   const productsWithQuantity = products.map((product) => {
     const productWithQuantity = { ...product, quantity: 0 };
 
+    // read the cookie and find the product
+
     const productInCookie = productsCookieParsed.find(
       (productObject) => product.id === productObject.id,
     );
 
+    // if product is found the quantity gets updated
     if (productInCookie) {
       productWithQuantity.quantity = productInCookie.quantity;
     }

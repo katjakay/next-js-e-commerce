@@ -22,8 +22,8 @@ export default async function ProductsPage() {
                 <Image
                   src={`/images/${product.firstName}-${product.id}.png`}
                   alt={product.type}
-                  width="566"
-                  height="809"
+                  width="368"
+                  height="528"
                 />
                 <h3> {product.firstName.toUpperCase()}</h3>
                 <p>{product.price}</p>
