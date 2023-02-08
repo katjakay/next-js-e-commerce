@@ -27,6 +27,7 @@ export default function Product(props) {
       >
         -
       </button>
+
       <button
         onClick={() => {
           const productsInCookies = getParsedCookie('productsCookie');

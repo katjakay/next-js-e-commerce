@@ -1,16 +1,31 @@
 import Image from 'next/image';
-import { products } from '../../../database/products';
+import { notFound } from 'next/navigation';
+import { getProductById } from '../../../database/products';
+import { ProductNotFoundMetadata } from './not-found';
 import styles from './page.module.scss';
 import Product from './Product';
 
 export const dynamic = 'force-dynamic';
 
-// Use method FIND to loop through database
-export default function OneProductPage(props) {
-  const oneProduct = products.find((product) => {
-    // return item of the database if it matches server info
-    return product.firstName.toLowerCase() === props.params.productName;
-  });
+export async function generateMetadata(props) {
+  const oneProduct = await getProductById(props.params.productId);
+
+  if (!oneProduct) {
+    return ProductNotFoundMetadata;
+  }
+
+  return {
+    title: oneProduct.firstName,
+    description: `Single product page for ${oneProduct.firstName}`,
+  };
+}
+
+export default async function OneProductPage(props) {
+  const oneProduct = await getProductById(props.params.productId);
+
+  if (!oneProduct) {
+    notFound();
+  }
 
   return (
     <div className={styles.main_wrapper}>

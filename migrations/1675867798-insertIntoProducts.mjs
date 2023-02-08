@@ -1,43 +1,60 @@
-import fs from 'node:fs';
-
-export const products = [
+const products = [
   {
     id: 1,
-    firstName: 'Pilates Retreat',
+    first_name: 'Pilates Retreat',
     type: 'Service',
-    price: '560 €',
+    price: '560',
     description:
       'Taking place at the auspicious time of summer solstice, our program is about healing and growth, deep rest, heartfelt sensuality and self acknowledgement: A shedding of the superficial, an ode to the beauty of life, a celebration of re-connection between nature, your body and your mind.',
   },
+
   {
     id: 2,
-    firstName: 'Pilates 1:1',
+    first_name: 'Pilates Class',
     type: 'Service',
-    price: '75 €',
+    price: '75',
     description:
       'The classes of Ka-linaw Pilates Practice are designed to be modern, dynamic and fun. There are no previous skills needed to start the journey, as all the classes are created and destined for beginner to advanced practitioners.',
   },
+
   {
     id: 3,
-    firstName: 'Ka-linaw Socks',
+    first_name: 'Ka-linaw Socks',
     type: 'Print',
-    price: '34 €',
+    price: '34',
     description:
       'Get a grip and hold your pose with our light-weight, cotton Ka-linaw Pilates grip crew socks.',
   },
+
   {
     id: 4,
-    firstName: 'Ka-linaw Hoodie',
+    first_name: 'Ka-linaw Hoodie',
     type: 'Garment',
-    price: '120 €',
+    price: '120',
     description:
       'This new cropped long-sleeve is the perfect layering piece for a chilly morning. The raw hem and dropped shoulder seam are streetwear inspired, while the lightweight Airlume cotton is fit to flatte.',
   },
 ];
 
+export async function up(sql) {
+  await sql`
+  INSERT INTO products ${sql(
+    products,
+    'first_name',
+    'type',
+    'price',
+    'description',
+  )}
+  `;
+}
 
-
-INSERT INTO products
-VALUES
-(first_name, type, price, description)
-('Pilates Class', 'Service', '75', 'The classes of Ka-linaw Pilates Practice are designed to be modern, dynamic and fun. There are no previous skills needed to start the journey, as all the classes are created and destined for beginner to advanced practitioners.');
+export async function down(sql) {
+  for (const product of products) {
+    await sql`
+    DELETE FROM
+    products
+    WHERE
+    id = ${product.id}
+    `;
+  }
+}
