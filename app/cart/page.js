@@ -6,8 +6,8 @@ import styles from './page.modules.scss';
 
 export default async function cartPage() {
   const products = await getProducts();
-
   const productsCookie = cookies().get('productsCookie');
+
   let productsCookieParsed = [];
 
   if (productsCookie) {
@@ -30,10 +30,19 @@ export default async function cartPage() {
     return productWithQuantity;
   });
 
+  let total = 0;
+  productsWithQuantity.forEach((product) => {
+    total += product.price * product.quantity;
+  });
+
+  const productsInCart = productsWithQuantity.filter(
+    (product) => product.quantity > 0,
+  );
+
   return (
     <main className={styles.cart_main}>
       <h3>ORDER SUMMARY</h3>
-      {productsWithQuantity.map((product) => {
+      {productsInCart.map((product) => {
         return (
           <div key={product.id}>
             <Link href={`/products/${product.id}`}>
@@ -50,7 +59,9 @@ export default async function cartPage() {
           </div>
         );
       })}
-
+      <br />
+      <p>Total: {total}</p>
+      <br />
       <Link href="/checkout">
         <button>Checkout</button>
       </Link>
