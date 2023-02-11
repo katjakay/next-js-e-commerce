@@ -3,7 +3,7 @@ export default function CartsHead() {
     <>
       <title>Cart</title>
       <meta name="description" content="This is my full cart" />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/icon.svg" />
     </>
   );
 }

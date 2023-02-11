@@ -1,0 +1,44 @@
+main {
+  display: inline-grid;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  position: center;
+
+  & div {
+    display: grid;
+    align-items: center;
+    position: center;
+    align-content: center;
+  }
+
+  & h3 {
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 32px;
+    color: black;
+  }
+
+  & a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    line-height: 18px;
+  }
+
+  & p {
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
+
+.button {
+  position: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  color: #fd7291;
+  background-color: transparent;
+  border: 1px solid #fd7291;
+  border-radius: 5px;
+}

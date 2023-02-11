@@ -1,15 +1,12 @@
 import { cookies } from 'next/headers';
-import Image from 'next/image';
-import Link from 'next/link';
-import { getProducts } from '../../database/products';
-import styles from './page.modules.scss';
+import { getProducts } from '../../../database/products';
 
-export default async function cartPage() {
+export default async function quantityPage() {
   const products = await getProducts();
 
   const productsCookie = cookies().get('productsCookie');
-  let productsCookieParsed = [];
 
+  let productsCookieParsed = [];
   if (productsCookie) {
     productsCookieParsed = JSON.parse(productsCookie.value);
   }
@@ -18,7 +15,6 @@ export default async function cartPage() {
     const productWithQuantity = { ...product, quantity: 0 };
 
     // read the cookie and find the product
-
     const productInCookie = productsCookieParsed.find(
       (productObject) => product.id === productObject.id,
     );
@@ -31,29 +27,14 @@ export default async function cartPage() {
   });
 
   return (
-    <main className={styles.cart_main}>
-      <h3>ORDER SUMMARY</h3>
+    <div>
       {productsWithQuantity.map((product) => {
         return (
           <div key={product.id}>
-            <Link href={`/products/${product.id}`}>
-              <Image
-                src={`/images/${product.id}.png`}
-                alt={product.type}
-                width="156"
-                height="207"
-              />
-              <h3>{product.firstName}</h3>
-              <p>{product.price}</p>
-              <p>QTY: {product.quantity}</p>
-            </Link>
+            <p>QTY: {product.quantity}</p>
           </div>
         );
       })}
-
-      <Link href="/checkout">
-        <button>Checkout</button>
-      </Link>
-    </main>
+    </div>
   );
 }

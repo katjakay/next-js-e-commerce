@@ -3,8 +3,15 @@
   flex-direction: row;
 }
 
-.span {
+span {
   margin-left: 52px;
+
+  & div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
 }
 // Image {
 //   display: flex;
@@ -34,3 +41,9 @@
 //   cursor: pointer;
 //   text-transform: uppercase;
 // }
+.image_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}

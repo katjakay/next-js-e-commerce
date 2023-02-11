@@ -1,5 +1,7 @@
 import './global.scss';
+import Image from 'next/image';
 import Link from 'next/link';
+import star from '../public/star.png';
 import styles from './layout.module.scss';
 
 export default function RootLayout({ children }) {
@@ -10,9 +12,13 @@ export default function RootLayout({ children }) {
       <body>
         <header className={styles.header}>
           <nav>
+            <a>
+              <Image src={star} alt="star" width="36" height="36" />
+            </a>
             <a href="/" className={styles.logo}>
               KA-LINAW Pilates
             </a>
+
             <div>
               <Link href="/">Home</Link>
               <Link href="/products">Products</Link>

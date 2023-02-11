@@ -2,6 +2,14 @@ import Image from 'next/image';
 import background from '../public/background.jpeg';
 import styles from './page.module.scss';
 
+export const metadata = {
+  title: 'Home',
+  description: 'Ka-linaw inspired by the island of the Philippines.',
+  icons: {
+    shortcut: '/icon.svg',
+  },
+};
+
 export default function HomePage() {
   return (
     <main>
