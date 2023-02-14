@@ -2,9 +2,20 @@ import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getProducts } from '../../database/products';
-import styles from './page.modules.scss';
+import styles from './page.module.scss';
+import RemoveProductButton from './RemoveProductButton';
+
+export const metadata = {
+  title: 'Cart',
+  description:
+    'Your journey to wellness is just a few clicks away. Review your Pilates purchases and complete your transaction securely on our online store. Embrace a healthier, stronger you with our personalized classes and equipment.',
+  icons: {
+    shortcut: '/icon.svg',
+  },
+};
 
 export default async function cartPage() {
+  // Get cookie
   const products = await getProducts();
   const productsCookie = cookies().get('productsCookie');
 
@@ -17,8 +28,7 @@ export default async function cartPage() {
   const productsWithQuantity = products.map((product) => {
     const productWithQuantity = { ...product, quantity: 0 };
 
-    // read the cookie and find the product
-
+    // Read the cookie and find the product
     const productInCookie = productsCookieParsed.find(
       (productObject) => product.id === productObject.id,
     );
@@ -30,41 +40,52 @@ export default async function cartPage() {
     return productWithQuantity;
   });
 
-  let total = 0;
+  // Calculate the total sum of price
+  let totalPrice = 0;
   productsWithQuantity.forEach((product) => {
-    total += product.price * product.quantity;
+    totalPrice += product.price * product.quantity;
   });
-
+  // Render only products with quantity to cart list
   const productsInCart = productsWithQuantity.filter(
     (product) => product.quantity > 0,
   );
 
   return (
-    <main className={styles.cart_main}>
-      <h3>ORDER SUMMARY</h3>
-      {productsInCart.map((product) => {
-        return (
-          <div key={product.id}>
-            <Link href={`/products/${product.id}`}>
-              <Image
-                src={`/images/${product.id}.png`}
-                alt={product.type}
-                width="156"
-                height="207"
-              />
-              <h3>{product.firstName}</h3>
-              <p>{product.price}</p>
-              <p>QTY: {product.quantity}</p>
-            </Link>
+    <span>
+      <main className={styles.cart_pageWrapper}>
+        <h3>ORDER SUMMARY</h3>
+        <hr className={styles.cart_lineBreak} />
+        <div className={styles.cart_imageLayout}>
+          {productsInCart.map((product) => {
+            return (
+              <div key={product.id}>
+                <Link href={`/products/${product.id}`}>
+                  <Image
+                    src={`/images/${product.id}.png`}
+                    alt={product.type}
+                    width="156"
+                    height="207"
+                  />
+                  <span className={styles.cart_textLayout}>
+                    <h3>{product.firstName}</h3>
+                    <p>QTY: {product.quantity}</p>
+                    <p>{product.price}</p>
+                  </span>
+                </Link>
+                <RemoveProductButton product={product} />
+              </div>
+            );
+          })}
+          <br />
+          <p className={styles.cart_totalPriceLayout}>Total {totalPrice}</p>
+          <Link href="/checkout">
+            <button className={styles.cart_checkoutButton}>Checkout</button>
+          </Link>
+          <div className={styles.cart_cartBackToProducts}>
+            <a href="/products">Back to Products [↙]</a>
           </div>
-        );
-      })}
-      <br />
-      <p>Total: {total}</p>
-      <br />
-      <Link href="/checkout">
-        <button>Checkout</button>
-      </Link>
-    </main>
+        </div>
+      </main>
+    </span>
   );
 }

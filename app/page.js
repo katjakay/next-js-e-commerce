@@ -3,8 +3,9 @@ import background from '../public/background.jpeg';
 import styles from './page.module.scss';
 
 export const metadata = {
-  title: 'Home',
-  description: 'Ka-linaw inspired by the island of the Philippines.',
+  title: 'Ka–linaw Pilates',
+  description:
+    'Discover the unique blend of Pilates and island culture with our online store. Our certified instructors bring the energy and spirit of the Philippines to each session. Shop now for personalized classes and equipment to help you reach your fitness goals.',
   icons: {
     shortcut: '/icon.svg',
   },

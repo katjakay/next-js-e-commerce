@@ -1,10 +1,43 @@
 import './global.scss';
+import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getProducts } from '../database/products';
 import star from '../public/star.png';
 import styles from './layout.module.scss';
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const products = await getProducts();
+  const productsCookie = cookies().get('productsCookie');
+
+  let productsCookieParsed = [];
+
+  if (productsCookie) {
+    productsCookieParsed = JSON.parse(productsCookie.value);
+  }
+
+  const productsWithQuantity = products.map((product) => {
+    const productWithQuantity = { ...product, quantity: 0 };
+
+    // read the cookie and find the product
+
+    const productInCookie = productsCookieParsed.find(
+      (productObject) => product.id === productObject.id,
+    );
+
+    // if product is found the quantity gets updated
+    if (productInCookie) {
+      productWithQuantity.quantity = productInCookie.quantity;
+    }
+    return productWithQuantity;
+  });
+
+  // Calculate total sum of price
+  let totalQuantity = 0;
+  productsWithQuantity.forEach((product) => {
+    totalQuantity += product.quantity;
+  });
+
   return (
     <html lang="en">
       <head />
@@ -13,7 +46,7 @@ export default function RootLayout({ children }) {
         <header className={styles.header}>
           <nav>
             <a>
-              <Image src={star} alt="star" width="36" height="36" />
+              <Image href="/" src={star} alt="star" width="36" height="36" />
             </a>
             <a href="/" className={styles.logo}>
               KA-LINAW Pilates
@@ -22,7 +55,8 @@ export default function RootLayout({ children }) {
             <div>
               <Link href="/">Home</Link>
               <Link href="/products">Products</Link>
-              <Link href="/cart">Cart (0)</Link>
+
+              <Link href="/cart">Cart [{totalQuantity}]</Link>
             </div>
           </nav>
         </header>
@@ -31,7 +65,9 @@ export default function RootLayout({ children }) {
           <div>
             <ul>
               <li href="/">Home</li>
-              <li href="/products">Products</li>
+              <li data-test-id="products-link" href="/products">
+                Products
+              </li>
               <li href="/">About Kalinaw</li>
             </ul>
           </div>

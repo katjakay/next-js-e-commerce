@@ -1,4 +1,14 @@
+import Link from 'next/link';
 import styles from './page.modules.scss';
+
+export const metadata = {
+  title: 'Checkout',
+  description:
+    'Complete your Pilates journey with confidence on our secure checkout page. Enjoy the convenience of online shopping while we handle the rest. Your personalized classes and equipment are just a few steps away.',
+  icons: {
+    shortcut: '/icon.svg',
+  },
+};
 
 export default function checkoutPage() {
   return (
@@ -39,8 +49,11 @@ export default function checkoutPage() {
           <label htmlFor="security-code">Credit card number</label>
           <input data-test-id="checkout-security-code" name="security code" />
           <br />
-          <button data-test-id="checkout-confirm-order">confirm order</button>
+          <button href="/thankyou" data-test-id="checkout-confirm-order">
+            confirm order
+          </button>
         </form>
+        <Link href="/thankyou">thank you [↙]</Link>
       </main>
     </div>
   );

@@ -1,12 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProductById } from '../../../database/products';
-import CountState from '../../components/CountState';
 import { ProductNotFoundMetadata } from './not-found';
-import styles from './page.modules.scss';
+import styles from './page.module.scss';
 import Product from './Product';
-
-// import Quantity from './Quantity';
 
 export const dynamic = 'force-dynamic';
 
@@ -34,28 +32,34 @@ export default async function OneProductPage(props) {
   }
 
   return (
-    <span className={styles.main_wrapper}>
-      <div>
-        <div className={styles.image_wrapper}>
+    <span>
+      <main className={styles.oneProduct_wrapper}>
+        <div className={styles.oneProduct_imageLayout}>
           <Image
+            data-test-id="product-image"
             src={`/images/${oneProduct.id}.png`}
             alt={oneProduct.type}
             width="498"
             height="712"
           />
         </div>
-        <div className={styles.description_wrapper}>
+        <div className={styles.oneProduct_textLayout}>
           <div>
-            <h1>{oneProduct.firstName}</h1>
-            <p>{oneProduct.description}</p>
-            <p> {oneProduct.price}</p>
+            <h1 className={styles.oneProduct_h1}>{oneProduct.firstName}</h1>
+            <p data-test-id="product-price" className={styles.oneProduct_price}>
+              {oneProduct.price}
+            </p>
+            <hr className={styles.oneProduct_lineBreak} />
+            <p className={styles.oneProduct_description}>
+              {oneProduct.description}
+            </p>
           </div>
-          <div>
+          <div className={styles.oneProduct_buttonLayout}>
             <Product product={oneProduct} />
-            {/* <Quantity /> */}
           </div>
         </div>
-      </div>
+
+      </main>
     </span>
   );
 }

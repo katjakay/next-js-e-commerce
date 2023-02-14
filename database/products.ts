@@ -50,7 +50,6 @@ export const getProducts = cache(async () => {
   const products = await sql<Product[]>`
     SELECT * FROM products
   `;
-
   return products;
 });
 

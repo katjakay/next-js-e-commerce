@@ -1,6 +1,7 @@
 h1 {
+  margin-top: 5px;
   margin-left: 292px;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 34px;
   letter-spacing: 0.22em;
   color: #b89acd;
@@ -44,10 +45,17 @@ div {
 
     :hover {
       color: #fd7291;
+      cursor: crosshair;
     }
   }
 }
 
 .text_wrapper {
   margin-top: 40px;
+}
+
+.imageLayout {
+  :hover {
+    transform: scale(1.5);
+  }
 }
