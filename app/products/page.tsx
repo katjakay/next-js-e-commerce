@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getProducts } from '../../database/products';
-import styles from './page.modules.scss';
+import styles from './page.module.scss';
 
 export const metadata = {
   title: 'Products',
@@ -17,11 +17,11 @@ export default async function ProductsPage() {
 
   return (
     <div>
-      <h1>ALL PRODUCTS</h1>
-      <span>
+      <h1 className={styles.allProducts_h1}>ALL PRODUCTS</h1>
+      <span className={styles.allProducts_layout}>
         {products.map((product) => {
           return (
-            <div key={product.id}>
+            <div className={styles.allProducts_contentLayout} key={product.id}>
               <Link href={`/products/${product.id}`}>
                 <Image
                   className={styles.imageLayout}
@@ -30,8 +30,11 @@ export default async function ProductsPage() {
                   width="397"
                   height="529"
                 />
-                <h3> {product.firstName.toUpperCase()}</h3>
-                <p>{product.price} [↗]</p>
+                <h3 className={styles.allProducts_h3}>
+                  {' '}
+                  {product.firstName.toUpperCase()}
+                </h3>
+                <p className={styles.allProducts_price}>{product.price} [↗]</p>
               </Link>
             </div>
           );

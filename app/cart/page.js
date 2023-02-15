@@ -17,7 +17,7 @@ export const metadata = {
 export default async function cartPage() {
   // Get cookie
   const products = await getProducts();
-  const productsCookie = cookies().get('productsCookie');
+  const productsCookie = cookies().get('cart');
 
   let productsCookieParsed = [];
 

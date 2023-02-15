@@ -10,7 +10,29 @@ Enjoy!
 
 ## Technologies used
 
+- React - Next.js is built on top of React, a popular front-end JavaScript library. React allows for the creation of reusable components and the efficient updating of the user interface.
+
+- Node.js - Next.js is a server-side rendering framework that runs on top of Node.js. Node.js provides a runtime environment for executing JavaScript code on the server.
+
+- TypeScript - Next.js supports TypeScript, a typed superset of JavaScript that can improve code quality and reduce errors.
+
+- SQL - a query language for APIs that allows for efficient data fetching and reduces the number of requests needed to render a page.
+
+- Playwright - is an open-source Node.js library that allows you to automate user interactions with web browsers.
+
 ## Screenshots
+
+### Ka-linaw Home
+
+![Screenshot Home](public/screenshots/Ka-linaw_Home.png)
+
+### Ka-linaw Products Overview
+
+![Screenshot Products Overview](public/screenshots/Ka-linaw_ProductsOverview.png)
+
+### Ka-linaw Product View
+
+![Screenshot Product](public/screenshots/Ka-linaw_ProductPage.png)
 
 ## Setup instructions
 

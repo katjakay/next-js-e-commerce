@@ -22,7 +22,7 @@ export async function generateMetadata(props: Props) {
 
   return {
     title: oneProduct.firstName,
-    description: `Single product page for ${oneProduct.firstName}`,
+    description: `Our experienced instructors offer a variety of Pilates classes designed to help you achieve your goals, whether you're a beginner or an advanced practitioner. Choose from mat classes, equipment classes, or private sessions tailored to your specific needs. Shop ${oneProduct.firstName} and many more and start feeling stronger and more energized today`,
     icons: {
       shortcut: '/icon.svg',
     },

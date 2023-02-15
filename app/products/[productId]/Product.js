@@ -43,9 +43,9 @@ export default function Product(props) {
         className={styles.oneProduct_addToCartButton}
         data-test-id="product-add-to-cart"
         onClick={() => {
-          const productsInCookies = getParsedCookie('productsCookie');
+          const productsInCookies = getParsedCookie('cart');
           if (!productsInCookies) {
-            setStringifiedCookie('productsCookie', [
+            setStringifiedCookie('cart', [
               { id: props.product.id, quantity: count },
             ]);
 
@@ -60,7 +60,7 @@ export default function Product(props) {
             productsInCookies.push({ id: props.product.id, quantity: count });
           }
 
-          setStringifiedCookie('productsCookie', productsInCookies);
+          setStringifiedCookie('cart', productsInCookies);
           setCount(1);
           router.refresh();
         }}
