@@ -72,7 +72,9 @@ export default async function cartPage() {
                     <p>{product.price}</p>
                   </span>
                 </Link>
-                <RemoveProductButton product={product} />
+                <div className={styles.cart_removeButton}>
+                  <RemoveProductButton product={product} />
+                </div>
               </div>
             );
           })}

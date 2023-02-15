@@ -67,8 +67,9 @@ export default function Product(props) {
       >
         ADD TO CART
       </button>
+
       <div className={styles.oneProduct_backNav}>
-        <Link href="/products">back to products [↙]</Link>
+        <Link href="/cart">Go to cart [↙]</Link>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProductById } from '../../../database/products';
 import { ProductNotFoundMetadata } from './not-found';
@@ -8,8 +7,14 @@ import Product from './Product';
 
 export const dynamic = 'force-dynamic';
 
-export async function generateMetadata(props) {
-  const oneProduct = await getProductById(props.params.productId);
+type Props = {
+  params: {
+    productId: string;
+  };
+};
+
+export async function generateMetadata(props: Props) {
+  const oneProduct = await getProductById(parseInt(props.params.productId));
 
   if (!oneProduct) {
     return ProductNotFoundMetadata;
@@ -24,8 +29,8 @@ export async function generateMetadata(props) {
   };
 }
 
-export default async function OneProductPage(props) {
-  const oneProduct = await getProductById(props.params.productId);
+export default async function OneProductPage(props: Props) {
+  const oneProduct = await getProductById(parseInt(props.params.productId));
 
   if (!oneProduct) {
     notFound();
@@ -58,7 +63,6 @@ export default async function OneProductPage(props) {
             <Product product={oneProduct} />
           </div>
         </div>
-
       </main>
     </span>
   );
