@@ -3,6 +3,8 @@ import { getProducts } from '../../database/products';
 import Form from './Form';
 import styles from './page.module.scss';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'Checkout',
   description:

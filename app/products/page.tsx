@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { getProducts } from '../../database/products';
 import styles from './page.module.scss';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'Products',
   description:
@@ -26,7 +28,7 @@ export default async function ProductsPage() {
               key={`product-${product.id}`}
             >
               <Link
-                data-test-id="product-<product id>"
+                data-test-id={`product-${product.id}`}
                 href={`/products/${product.id}`}
               >
                 <Image
