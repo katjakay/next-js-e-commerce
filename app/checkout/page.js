@@ -45,7 +45,11 @@ export default async function checkoutPage() {
   });
   return (
     <div className={styles.checkout_formWrapper}>
-      <p> Total {totalPrice} €</p>
+      <main className={styles.checkout_formLayout}>
+        <h1> Order summary </h1>
+        <p>Total {totalPrice} €</p>
+      </main>
+
       <Form />
     </div>
   );

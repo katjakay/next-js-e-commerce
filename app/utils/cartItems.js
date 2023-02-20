@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers';
 import { getProducts } from '../../database/products';
-import { getParsedCookie, setStringifiedCookie } from './cookies';
+
+// import { getParsedCookie, setStringifiedCookie } from './cookies';
 
 export async function cartPage() {
   const products = await getProducts();

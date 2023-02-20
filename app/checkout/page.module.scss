@@ -1,47 +1,68 @@
 .checkout_formWrapper {
   display: relative;
   min-height: 100vh;
+  align-items: center;
+  align-content: center;
+  position: center;
+  height: 100vh;
+  margin-top: 90px;
 
-  //   align-items: center;
-  //   align-content: center;
-  //   position: center;
-  //   height: 100vh;
+  & div {
+    align-items: center;
+    align-content: center;
+    position: center;
+  }
+  & h1 {
+    font-size: 18px;
+    align-items: center;
+  }
 
-  //   // & p {
-  //   //   display: flex;
-  //   //   flex-direction: row;
-  //   // }
-}
-
-.checkout_formLayout {
-  position: relative;
-  width: 500px;
-  margin: 50px auto 100px auto;
-  // align-items: left;
-
-  & label {
-    font-size: 14px;
-    margin-right: 10px;
-    margin-left: 10px;
+  & p {
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
   }
 }
 
-// .checkout_lineBreak {
-//   border-top: 0.5px dashed #fd7291;
-// }
+.checkout_formLayout {
+  position: inline;
+  width: 500px;
+  margin: auto;
 
-// .formButtonLayout {
-//   border: 1px solid #fd7291;
-//   background: transparent;
-//   // border-radius: 5px;
-//   font-family: 'IBM Plex Mono';
-//   width: 300px;
-//   height: 40px;
-//   margin-top: 10px;
+  & form {
+    width: 500px;
 
-//   & a {
-//     a:hover {
-//       background-color: #fd7291;
-//     }
-//   }
-// }
+    & input {
+      border: 1px solid #fd7291;
+      height: 20px;
+      margin-right: 18px;
+
+      :hover {
+        cursor: crosshair;
+      }
+    }
+    & h4 {
+      font-size: 14px;
+      margin-top: 60px;
+    }
+
+    & label {
+      font-size: 14px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.checkout_lineBreak {
+  border-top: 0.5px dashed #fd7291;
+}
+
+.formButtonLayout {
+  border: 1px solid #fd7291;
+  background: transparent;
+  font-family: 'IBM Plex Mono';
+  width: 300px;
+  height: 40px;
+  margin-top: 60px;
+}

@@ -19,11 +19,11 @@ export default function FormComponent() {
 
   return (
     <div>
-      <h4>Shipping Address</h4>
-
       <main className={styles.checkout_formWrapper}>
         <div className={styles.checkout_formLayout}>
           <form onSubmit={handleSubmit} autoComplete="off">
+            <h4>Shipping Address</h4>
+
             <label htmlFor="first">First name</label>
             <input
               onChange={onChange}
@@ -76,7 +76,7 @@ export default function FormComponent() {
               name="country"
               required
             />
-            <hr className={styles.checkout_lineBreak} />
+            {/* <hr className={styles.checkout_lineBreak} /> */}
             <h4>Credit card details</h4>
             <label htmlFor="credit-card">Credit card number</label>
             <input
