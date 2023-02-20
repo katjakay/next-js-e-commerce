@@ -11,13 +11,13 @@ export default function deleteProduct(props) {
     <button
       className={styles.cart_Button}
       onClick={() => {
-        const productsInCookies = getParsedCookie('productsCookie');
+        const productsInCookies = getParsedCookie('cart');
 
         const foundProduct = productsInCookies.filter((productInCookie) => {
           return productInCookie.id !== props.product.id;
         });
 
-        setStringifiedCookie('productsCookie', foundProduct);
+        setStringifiedCookie('cart', foundProduct);
         router.refresh();
       }}
     >

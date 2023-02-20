@@ -8,7 +8,7 @@ import styles from './layout.module.scss';
 
 export default async function RootLayout({ children }) {
   const products = await getProducts();
-  const productsCookie = cookies().get('productsCookie');
+  const productsCookie = cookies().get('cart');
 
   let productsCookieParsed = [];
 
@@ -54,7 +54,9 @@ export default async function RootLayout({ children }) {
 
             <div>
               <Link href="/">Home</Link>
-              <Link href="/products">Products</Link>
+              <Link data-test-id="products-link" href="/products">
+                Products
+              </Link>
 
               <Link href="/cart">Cart [{totalQuantity}]</Link>
             </div>

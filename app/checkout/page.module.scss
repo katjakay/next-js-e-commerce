@@ -1,27 +1,47 @@
 .checkout_formWrapper {
-  display: flex;
-  flex-direction: column;
+  display: relative;
+  min-height: 100vh;
+
+  //   align-items: center;
+  //   align-content: center;
+  //   position: center;
+  //   height: 100vh;
+
+  //   // & p {
+  //   //   display: flex;
+  //   //   flex-direction: row;
+  //   // }
 }
 
 .checkout_formLayout {
-  display: flex;
-  flex-direction: row;
-  position: center;
-  align-items: left;
+  position: relative;
+  width: 500px;
+  margin: 50px auto 100px auto;
+  // align-items: left;
 
   & label {
-    font-size: 10px;
+    font-size: 14px;
     margin-right: 10px;
     margin-left: 10px;
   }
-
-  & input {
-    width: 10%;
-    border: 1px solid #fd7291;
-    border-radius: 6px;
-  }
 }
 
-.checkout_lineBreak {
-  border-top: 0.5px dashed #fd7291;
-}
+// .checkout_lineBreak {
+//   border-top: 0.5px dashed #fd7291;
+// }
+
+// .formButtonLayout {
+//   border: 1px solid #fd7291;
+//   background: transparent;
+//   // border-radius: 5px;
+//   font-family: 'IBM Plex Mono';
+//   width: 300px;
+//   height: 40px;
+//   margin-top: 10px;
+
+//   & a {
+//     a:hover {
+//       background-color: #fd7291;
+//     }
+//   }
+// }

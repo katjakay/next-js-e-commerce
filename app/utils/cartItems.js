@@ -1,19 +1,8 @@
 import { cookies } from 'next/headers';
 import { getProducts } from '../../database/products';
-import Form from './Form';
-import styles from './page.module.scss';
+import { getParsedCookie, setStringifiedCookie } from './cookies';
 
-export const metadata = {
-  title: 'Checkout',
-  description:
-    'Complete your Pilates journey with confidence on our secure checkout page. Enjoy the convenience of online shopping while we handle the rest. Your personalized classes and equipment are just a few steps away.',
-  icons: {
-    shortcut: '/icon.svg',
-  },
-};
-
-export default async function checkoutPage() {
-  // Get cookie
+export async function cartPage() {
   const products = await getProducts();
   const productsCookie = cookies().get('cart');
 
@@ -38,15 +27,10 @@ export default async function checkoutPage() {
     return productWithQuantity;
   });
 
-  // Calculate the total sum of price
-  let totalPrice = 0;
-  productsWithQuantity.forEach((product) => {
-    totalPrice += product.price * product.quantity;
-  });
-  return (
-    <div className={styles.checkout_formWrapper}>
-      <p> Total {totalPrice} €</p>
-      <Form />
-    </div>
-  );
+  export default function cartTotalSum() {
+    let totalPrice = 0;
+    productsWithQuantity.forEach((product) => {
+      totalPrice += product.price * product.quantity;
+    });
+  }
 }

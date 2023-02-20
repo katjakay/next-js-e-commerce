@@ -20,20 +20,23 @@ export default function FormComponent() {
   return (
     <div>
       <h4>Shipping Address</h4>
+
       <main className={styles.checkout_formWrapper}>
         <div className={styles.checkout_formLayout}>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} autoComplete="off">
             <label htmlFor="first">First name</label>
             <input
               onChange={onChange}
               data-test-id="checkout-first-name"
               name="first"
+              required
             />
             <label htmlFor="first">Last name</label>
             <input
               onChange={onChange}
               data-test-id="checkout-last-name"
               name="last"
+              required
             />
             <br />
             <label htmlFor="e-mail">E-mail</label>
@@ -41,12 +44,14 @@ export default function FormComponent() {
               onChange={onChange}
               data-test-id="checkout-e-mail"
               name="e-mail"
+              required
             />
             <label htmlFor="address">Address</label>
             <input
               onChange={onChange}
               data-test-id="checkout-address"
               name="address"
+              required
             />
             <br />
             <label htmlFor="city">City</label>
@@ -55,12 +60,14 @@ export default function FormComponent() {
               onChange={onChange}
               data-test-id="checkout-city"
               name="city"
+              required
             />
             <label htmlFor="postal-code">Postal code</label>
             <input
               onChange={onChange}
               data-test-id="checkout-postal-code"
               name="postal-code"
+              required
             />
             <hr className={styles.checkout_lineBreak} />
             <h4>Credit card details</h4>
@@ -69,12 +76,15 @@ export default function FormComponent() {
               onChange={onChange}
               data-test-id="checkout-credit-card"
               name="credit-card"
+              required
             />
+            <br />
             <label htmlFor="expiration-date">Expiration date</label>
             <input
               onChange={onChange}
               data-test-id="checkout-expiration-date"
               name="expiration-date"
+              required
             />
             <br />
             <label htmlFor="security-code">Security code</label>
@@ -82,9 +92,15 @@ export default function FormComponent() {
               onChange={onChange}
               data-test-id="checkout-security-code"
               name="security-code"
+              required
             />
             <br />
-            <button data-test-id="checkout-confirm-order">confirm order</button>
+            <button
+              className={styles.formButtonLayout}
+              data-test-id="checkout-confirm-order"
+            >
+              confirm order
+            </button>
           </form>
         </div>
       </main>

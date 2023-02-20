@@ -36,10 +36,15 @@
   margin-left: 292px;
   margin-right: 292px;
   margin-top: 60px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 .allProducts_contentLayout {
+  & img:hover {
+    // box-shadow: #fd7291 0px 5px 15px;
+    box-shadow: #fd7291 0px 25px 50px -12px;
+  }
+
   & a {
     text-decoration: none;
 
@@ -52,10 +57,4 @@
 
 .text_wrapper {
   margin-top: 40px;
-}
-
-.imageLayout {
-  :hover {
-    transform: scale(1.5);
-  }
 }

@@ -1,27 +1,26 @@
 .oneProduct_wrapper {
   display: flex;
-  flex-direction: row;
-  margin-right: 400px;
+  align-items: center;
+  margin-right: 500px;
+  height: 100vh;
+  margin-top: 0;
+  margin-bottom: 100px;
 }
 .oneProduct_imageLayout {
   display: flex;
   flex-direction: wrap;
-  align-content: space-between;
-  margin-left: 320px;
-  margin-bottom: 90px;
+  margin-left: 500px;
+  margin-bottom: 250px;
 }
 
 .oneProduct_textLayout {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  position: center;
-  align-items: center;
-  margin-right: 40px;
   margin-left: 100px;
   margin-top: 0px;
   margin-bottom: 200px;
-  align-content: center;
+  align-items: center;
 }
 
 .oneProduct_h1 {
@@ -41,11 +40,12 @@
 
 .oneProduct_lineBreak {
   border-top: 0.5px dashed #fd7291;
+  // width: 300px;
 }
 .oneProduct_buttonLayout {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  // flex-direction: row;
+  // flex-wrap: wrap;
   position: center;
   align-items: center;
 }

@@ -8,7 +8,7 @@ With the use of modern web technologies and frameworks, this e-commerce store fe
 
 Enjoy!
 
-## Technologies used
+## Technologies / Languages used
 
 - React - Next.js is built on top of React, a popular front-end JavaScript library. React allows for the creation of reusable components and the efficient updating of the user interface.
 
@@ -36,4 +36,54 @@ Enjoy!
 
 ## Setup instructions
 
-# Deployment instructions
+Clone the project on your local machine (run each line individually):
+
+```
+git clone <url>
+cd <repo name>
+yarn
+```
+
+Connect to default database as admin:
+
+```
+On macOS
+psql postgres
+```
+
+Set up the database:
+
+```
+CREATE DATABASE <database name>;
+CREATE USER <user name> WITH ENCRYPTED PASSWORD <user password>;
+GRANT ALL PRIVILEGES ON DATABASE <database name> TO <user name>;
+```
+
+After queries are successfully ran, quit psql and connect to the database
+\q
+On Windows & macOS
+
+```
+psql -U <user name> <database name>
+```
+
+In the repository's directory, run migrations using ley:
+
+```
+yarn migrate up
+```
+
+Create a .env file:
+Open the project in your code editor
+
+Copy the content of the .env.example file into the .env file
+Replace xxxxxxxx with the access information
+add .env file to .gitignore
+
+Start deployment server:
+
+```
+yarn dev
+```
+
+## Deployment instructions

@@ -22,7 +22,10 @@ export default async function ProductsPage() {
         {products.map((product) => {
           return (
             <div className={styles.allProducts_contentLayout} key={product.id}>
-              <Link href={`/products/${product.id}`}>
+              <Link
+                data-test-id="product-<product id>"
+                href={`/products/${product.id}`}
+              >
                 <Image
                   className={styles.imageLayout}
                   src={`/images/${product.id}.png`}
@@ -34,7 +37,9 @@ export default async function ProductsPage() {
                   {' '}
                   {product.firstName.toUpperCase()}
                 </h3>
-                <p className={styles.allProducts_price}>{product.price} [↗]</p>
+                <p className={styles.allProducts_price}>
+                  {product.price} € [↗]
+                </p>
               </Link>
             </div>
           );

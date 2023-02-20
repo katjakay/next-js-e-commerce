@@ -53,7 +53,7 @@ export default async function cartPage() {
   return (
     <span>
       <main className={styles.cart_pageWrapper}>
-        <h3>ORDER SUMMARY</h3>
+        <h1 className={styles.cart_h1}>ORDER SUMMARY</h1>
         <hr className={styles.cart_lineBreak} />
         <div className={styles.cart_imageLayout}>
           {productsInCart.map((product) => {
@@ -69,7 +69,7 @@ export default async function cartPage() {
                   <span className={styles.cart_textLayout}>
                     <h3>{product.firstName}</h3>
                     <p>QTY: {product.quantity}</p>
-                    <p>{product.price}</p>
+                    <p>{product.price} €</p>
                   </span>
                 </Link>
                 <div className={styles.cart_removeButton}>
@@ -79,9 +79,14 @@ export default async function cartPage() {
             );
           })}
           <br />
-          <p className={styles.cart_totalPriceLayout}>Total {totalPrice}</p>
+          <p className={styles.cart_totalPriceLayout}>Total {totalPrice} €</p>
           <Link href="/checkout">
-            <button className={styles.cart_checkoutButton}>Checkout</button>
+            <button
+              className={styles.cart_checkoutButton}
+              data-test-id="cart-checkout"
+            >
+              Checkout
+            </button>
           </Link>
           <div className={styles.cart_cartBackToProducts}>
             <a href="/products">Back to Products [↙]</a>
