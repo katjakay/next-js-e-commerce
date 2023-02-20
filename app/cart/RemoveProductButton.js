@@ -9,6 +9,7 @@ export default function deleteProduct(props) {
 
   return (
     <button
+      data-test-id="cart-product-remove-<product id>"
       className={styles.cart_Button}
       onClick={() => {
         const productsInCookies = getParsedCookie('cart');

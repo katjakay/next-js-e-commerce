@@ -41,6 +41,7 @@ export default function Product(props) {
       <br />
       <button
         className={styles.oneProduct_addToCartButton}
+        name="Add to cart"
         data-test-id="product-add-to-cart"
         onClick={() => {
           const productsInCookies = getParsedCookie('cart');

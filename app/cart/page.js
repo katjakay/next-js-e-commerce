@@ -68,7 +68,9 @@ export default async function cartPage() {
                   />
                   <span className={styles.cart_textLayout}>
                     <h3>{product.firstName}</h3>
-                    <p>QTY: {product.quantity}</p>
+                    <p data-test-id="cart-product-quantity-<product id>">
+                      QTY: {product.quantity}
+                    </p>
                     <p>{product.price} €</p>
                   </span>
                 </Link>
