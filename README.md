@@ -91,14 +91,15 @@ yarn dev
 Sign up on Fly.io
 On the Fly.io Tokens page, generate a new Fly.io access token named GitHub Actions Deploy Token and copy it from the text box that appears - it will only be shown once
 
-In your GitHub repo under Settings → Secrets → Actions, click the New repository secret button at the top right of the page and create a new token with the name FLY_API_TOKEN and the token you copied as the secret
-On the command line, open the Fly.io login page in your browser using the following command:
+In GitHub repo under Settings → Secrets → Actions, click the New repository secret button at the top right of the page and create a new token with the name FLY_API_TOKEN and the token copied as the secret
+On the command line, open the Fly.io login page in my browser using the following command:
 
 ```
 flyctl auth login
 ```
 
-Enter your credentials in the browser window that appears and then click on the link Try Fly.io for free. Switch back to the terminal - it should now show a message like successfully logged in as <your email>.
+Enter credentials in the browser window that appears and then click on the link Try Fly.io for free. Switch back to the terminal - it should now show a message like successfully logged in as <your email>.
+
 Create an app, specifying the name using only lowercase letters and dashes:
 
 ```

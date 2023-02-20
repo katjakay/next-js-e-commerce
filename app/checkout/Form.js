@@ -42,7 +42,7 @@ export default function FormComponent() {
             <label htmlFor="e-mail">E-mail</label>
             <input
               onChange={onChange}
-              data-test-id="checkout-e-mail"
+              data-test-id="checkout-email"
               name="e-mail"
               required
             />
@@ -67,6 +67,13 @@ export default function FormComponent() {
               onChange={onChange}
               data-test-id="checkout-postal-code"
               name="postal-code"
+              required
+            />
+            <label htmlFor="country">Country</label>
+            <input
+              onChange={onChange}
+              data-test-id="checkout-country"
+              name="country"
               required
             />
             <hr className={styles.checkout_lineBreak} />
