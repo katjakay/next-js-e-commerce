@@ -3,6 +3,8 @@ import Link from 'next/link';
 import thankyou_bg from '../../public/thankyou_bg.jpeg';
 import styles from './page.module.scss';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'Thank You',
   description:
