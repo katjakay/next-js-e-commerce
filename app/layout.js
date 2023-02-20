@@ -1,3 +1,4 @@
+/* stylelint-disable-next-line CssSyntaxError */
 import './global.scss';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
@@ -59,9 +60,7 @@ export default async function RootLayout({ children }) {
               </Link>
               <Link href="/cart" data-test-id="cart-link">
                 Cart
-                <div className={styles.cartCount} data-test-id="cart-count">
-                  [{totalQuantity}]
-                </div>
+                <div data-test-id="cart-count">[{totalQuantity}]</div>
               </Link>
             </div>
           </nav>

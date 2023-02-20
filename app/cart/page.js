@@ -58,7 +58,10 @@ export default async function cartPage() {
         <div className={styles.cart_imageLayout}>
           {productsInCart.map((product) => {
             return (
-              <div key={product.id}>
+              <div
+                key={`product-${product.id}`}
+                data-test-id={`cart-product-${product.id}`}
+              >
                 <Link href={`/products/${product.id}`}>
                   <Image
                     src={`/images/${product.id}.png`}
@@ -68,13 +71,16 @@ export default async function cartPage() {
                   />
                   <span className={styles.cart_textLayout}>
                     <h3>{product.firstName}</h3>
-                    <p data-test-id="cart-product-quantity-<product id>">
-                      QTY: {product.quantity}
-                    </p>
+                    <div data-test-id={`cart-product-quantity-${product.id}`}>
+                      <p>QTY: {product.quantity}</p>
+                    </div>
                     <p>{product.price} €</p>
                   </span>
                 </Link>
-                <div className={styles.cart_removeButton}>
+                <div
+                  data-test-id={`cart-product-remove-${product.id}`}
+                  className={styles.cart_removeButton}
+                >
                   <RemoveProductButton product={product} />
                 </div>
               </div>

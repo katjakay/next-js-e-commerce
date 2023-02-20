@@ -21,13 +21,15 @@ export default async function ProductsPage() {
       <span className={styles.allProducts_layout}>
         {products.map((product) => {
           return (
-            <div className={styles.allProducts_contentLayout} key={product.id}>
+            <div
+              className={styles.allProducts_contentLayout}
+              key={`product-${product.id}`}
+            >
               <Link
                 data-test-id="product-<product id>"
                 href={`/products/${product.id}`}
               >
                 <Image
-                  className={styles.imageLayout}
                   src={`/images/${product.id}.png`}
                   alt={product.type}
                   width="397"

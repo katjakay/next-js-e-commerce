@@ -2,7 +2,6 @@ import { getParsedCookie, setStringifiedCookie } from '../cookies';
 
 describe('set, gets and delete a cookie', () => {
   // setup
-  const item = { id: 3 };
   const cookieKey = 'cart';
   const cookieValue = [{ id: 3, quantity: 7 }];
   test('set a cookie', () => {
