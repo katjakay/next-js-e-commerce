@@ -7,6 +7,6 @@ const sql = postgres();
 
 console.log(
   await sql`
-    SELECT * FROM products
+  SELECT * FROM products
   `,
 );
