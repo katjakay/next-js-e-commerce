@@ -1,4 +1,3 @@
-/* stylelint-disable-next-line CssSyntaxError */
 import './global.scss';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
@@ -6,6 +5,8 @@ import Link from 'next/link';
 import { getProducts } from '../database/products';
 import star from '../public/star.png';
 import styles from './layout.module.scss';
+
+export const dynamic = 'force-dynamic';
 
 export default async function RootLayout({ children }) {
   const products = await getProducts();

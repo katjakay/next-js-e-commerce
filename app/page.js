@@ -2,6 +2,8 @@ import Image from 'next/image';
 import background from '../public/background.jpeg';
 import styles from './page.module.scss';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'Ka–linaw Pilates',
   description:
